@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>MedWriter Enhancer</title>
+    <style>
+        body {
+            width: 450px;
+            padding: 20px;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background-color: #f8f9fa;
+            margin: 0;
+        }
+        .header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 20px;
+            padding-bottom: 12px;
+            border-bottom: 2px solid #e9ecef;
+        }
+        .header h1 {
+            font-size: 20px;
+            margin: 0;
+            color: #2196F3;
+            font-weight: 600;
+        }
+        .editor-container {
+            margin: 16px 0;
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+            padding: 12px;
+        }
+        #editor {
+            width: 100%;
+            height: 180px;
+            padding: 12px;
+            border: 1px solid #e9ecef;
+            border-radius: 6px;
+            font-family: inherit;
+            font-size: 15px;
+            line-height: 1.5;
+            resize: vertical;
+            transition: border-color 0.2s ease;
+            box-sizing: border-box;
+        }
+        #editor:focus {
+            outline: none;
+            border-color: #2196F3;
+            box-shadow: 0 0 0 3px rgba(33, 150, 243, 0.1);
+        }
+        .suggestions {
+            margin-top: 16px;
+            font-size: 14px;
+            max-height: 300px;
+            overflow-y: auto;
+        }
+        .suggestion {
+            padding: 12px;
+            margin: 8px 0;
+            background-color: #fff;
+            border: 1px solid #e9ecef;
+            border-radius: 6px;
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+        .suggestion:hover {
+            transform: translateY(-1px);
+            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+        }
+        .suggestion.wordiness {
+            border-left: 3px solid #FF9800;
+        }
+        .suggestion.cliche {
+            border-left: 3px solid #F44336;
+        }
+        .suggestion.weak {
+            border-left: 3px solid #9C27B0;
+        }
+        .suggestion strong {
+            display: inline-block;
+            font-size: 12px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-bottom: 4px;
+        }
+        .suggestion.wordiness strong {
+            color: #FF9800;
+        }
+        .suggestion.cliche strong {
+            color: #F44336;
+        }
+        .suggestion.weak strong {
+            color: #9C27B0;
+        }
+        .footer {
+            margin-top: 16px;
+            padding-top: 12px;
+            border-top: 1px solid #e9ecef;
+            font-size: 12px;
+            color: #6c757d;
+            text-align: center;
+        }
+        .stats {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 8px;
+            padding: 8px;
+            background: #f8f9fa;
+            border-radius: 4px;
+            font-size: 12px;
+            color: #6c757d;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>MedWriter Enhancer</h1>
+    </div>
+
+    <div class="editor-container">
+        <textarea id="editor" placeholder="Type your medical school application text here..."></textarea>
+        <div class="stats">
+            <span id="wordCount">Words: 0</span>
+            <span id="charCount">Characters: 0</span>
+        </div>
+    </div>
+
+    <div class="suggestions" id="suggestions">
+        <!-- Suggestions will appear here -->
+    </div>
+
+    <div class="footer">
+        Your text is automatically saved as you type
+    </div>
+
+    <script src="js/popup.js"></script>
+</body>
+</html> 

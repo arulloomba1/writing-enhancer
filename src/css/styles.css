@@ -1,0 +1,50 @@
+.writing-enhancer-suggestion {
+    position: absolute;
+    background-color: #ffffff;
+    border: 1px solid #e0e0e0;
+    border-radius: 4px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    padding: 8px 12px;
+    font-size: 14px;
+    max-width: 300px;
+    z-index: 9999;
+    margin-top: 8px;
+    opacity: 0;
+    transform: translateY(-10px);
+    transition: opacity 0.2s ease, transform 0.2s ease;
+}
+
+.writing-enhancer-suggestion:hover {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.suggestion-content {
+    color: #333333;
+}
+
+.suggestion-content strong {
+    color: #2196F3;
+    display: block;
+    margin-bottom: 4px;
+    font-size: 12px;
+    text-transform: uppercase;
+}
+
+.suggestion-content p {
+    margin: 0;
+    line-height: 1.4;
+}
+
+/* Types of suggestions */
+.writing-enhancer-suggestion[data-type="wordiness"] strong {
+    color: #FF9800;
+}
+
+.writing-enhancer-suggestion[data-type="cliché"] strong {
+    color: #F44336;
+}
+
+.writing-enhancer-suggestion[data-type="medical-term"] strong {
+    color: #4CAF50;
+} 

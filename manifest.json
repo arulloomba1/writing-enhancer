@@ -1,0 +1,41 @@
+{
+  "manifest_version": 3,
+  "name": "MedWriter Enhancer",
+  "version": "1.0",
+  "description": "Enhance your medical school application writing",
+  "permissions": [
+    "storage",
+    "activeTab",
+    "scripting",
+    "tabs"
+  ],
+  "host_permissions": [
+    "https://docs.google.com/*"
+  ],
+  "content_scripts": [
+    {
+      "matches": ["https://docs.google.com/document/*"],
+      "js": ["src/js/content.js"],
+      "css": ["src/css/sidebar.css"],
+      "run_at": "document_end",
+      "all_frames": true
+    }
+  ],
+  "action": {
+    "default_popup": "src/popup.html",
+    "default_icon": {
+      "16": "icons/icon16.png",
+      "48": "icons/icon48.png",
+      "128": "icons/icon128.png"
+    }
+  },
+  "icons": {
+    "16": "icons/icon16.png",
+    "48": "icons/icon48.png",
+    "128": "icons/icon128.png"
+  },
+  "web_accessible_resources": [{
+    "resources": ["src/js/*", "src/css/*"],
+    "matches": ["https://docs.google.com/*"]
+  }]
+} 
