@@ -247,4 +247,24 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Initial message
     suggestionsContainer.innerHTML = '<div style="color: #6c757d; padding: 12px; text-align: center; background: white; border-radius: 6px;">No suggestions yet. Try typing some text.</div>';
+
+    // Handle opening Google Docs
+    document.getElementById('openDocs').addEventListener('click', () => {
+        chrome.tabs.create({ url: 'https://docs.google.com/document/create' });
+    });
+
+    // Check if we're currently on a Google Doc
+    chrome.tabs.query({ active: true, currentWindow: true }, (tabs) => {
+        const currentTab = tabs[0];
+        const isGoogleDoc = currentTab.url.startsWith('https://docs.google.com/document/');
+        
+        const status = document.querySelector('.status');
+        if (isGoogleDoc) {
+            status.textContent = 'Extension is active and analyzing your document';
+            status.classList.add('active');
+        } else {
+            status.textContent = 'Open a Google Doc to start using MedWriter';
+            status.classList.remove('active');
+        }
+    });
 }); 
